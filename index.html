@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="address-book">
-                            <div v-for="contact, index in contacts" class="contact-address">
+                            <div v-for="contact, index in contacts" class="contact-address" @click="userSelected(index)">
                                 <div class="contact-image-avatar">
                                     <img :src="imageSource(contact.avatar)" alt="">
                                 </div>

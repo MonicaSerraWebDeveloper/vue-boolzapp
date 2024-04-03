@@ -93,5 +93,9 @@ createApp({
             const imageSourceCompleted = pathImage + dynamicImage + extensionImage
             return imageSourceCompleted
         },
+
+        userSelected: function(indexContacts) {
+            this.truthIndex = indexContacts
+        }
     }
 }).mount('#app');
