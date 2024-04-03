@@ -53,7 +53,8 @@
                             <div 
                             v-for="contact, index in contacts" 
                             class="contact-address"
-                            @click="userSelected(index)">
+                            @click="userSelected(index)"
+                            >
                                 <div class="contact-image-avatar">
                                     <img :src="imageSource(contact.avatar)" alt="">
                                 </div>
@@ -66,7 +67,7 @@
                                     </span>
                                 </div>
                                 <div class="time-contact-avatar">
-                                    {{ onlyTime() }}
+                                    22:00
                                 </div>
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                                             {{ contact.name }}
                                         </span>
                                         <span class="chat-contact-message-status-avatar">
-                                            Ultimo messaggio inviato alle {{ onlyTime() }}
+                                            Ultimo messaggio inviato alle 22:00
                                         </span>
                                     </div>
                                 </div>
@@ -110,7 +111,7 @@
                                     >
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
-                                            {{ onlyTime() }}
+                                            22:00
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@
                                     v-if="text.status === 'received' && indexContact === truthIndex">
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">
-                                            {{ onlyTime() }}
+                                            22:00
                                         </div>
                                     </div>
                                 </div> 
