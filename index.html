@@ -50,45 +50,13 @@
                             </div>
                         </div>
                         <div class="address-book">
-                            <div class="contact-address">
+                            <div v-for="contact, index in contacts" class="contact-address">
                                 <div class="contact-image-avatar">
-                                    <img src="./img/avatar_1.jpg" alt="">
+                                    <img :src="imageSource(contact.avatar)" alt="">
                                 </div>
                                 <div class="info-contact">
                                     <span class="contact-name-avatar">
-                                        Michele
-                                    </span>
-                                    <span class="contact-message-status-avatar">
-                                        Ultimo messaggio inviato 
-                                    </span>
-                                </div>
-                                <div class="time-contact-avatar">
-                                    22:00
-                                </div>
-                            </div>
-                            <div class="contact-address">
-                                <div class="contact-image-avatar">
-                                    <img src="./img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="info-contact">
-                                    <span class="contact-name-avatar">
-                                        Michele
-                                    </span>
-                                    <span class="contact-message-status-avatar">
-                                        Ultimo messaggio inviato 
-                                    </span>
-                                </div>
-                                <div class="time-contact-avatar">
-                                    22:00
-                                </div>
-                            </div>
-                            <div class="contact-address">
-                                <div class="contact-image-avatar">
-                                    <img src="./img/avatar_1.jpg" alt="">
-                                </div>
-                                <div class="info-contact">
-                                    <span class="contact-name-avatar">
-                                        Michele
+                                        {{ contact.name }}
                                     </span>
                                     <span class="contact-message-status-avatar">
                                         Ultimo messaggio inviato 
