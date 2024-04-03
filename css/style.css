@@ -242,7 +242,58 @@ body {
     overflow-y: auto;
     padding: 40px 50px;
     height: calc(100% - 120px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
+
+.message-sent-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message-sent {
+    max-width: 70%;
+    min-width: 30%;
+    background-color: #d5f9ba;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.chat-time-message-sent {
+    font-size: 10px;
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    color: #b1b1b1;
+}
+
+.message-received-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.message-received {
+    max-width: 70%;
+    min-width: 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.chat-time-message-received {
+    font-size: 10px;
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    color: #b1b1b1;
+}
+
+/* Input Send Meessage */
 
 .chat-input-message-user {
     height: 60px;
