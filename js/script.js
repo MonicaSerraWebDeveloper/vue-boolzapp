@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            truthIndex: 0,
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -91,6 +92,6 @@ createApp({
             const extensionImage = '.jpg'
             const imageSourceCompleted = pathImage + dynamicImage + extensionImage
             return imageSourceCompleted
-        }
+        },
     }
 }).mount('#app');

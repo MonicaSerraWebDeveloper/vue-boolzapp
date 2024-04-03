@@ -73,19 +73,21 @@
                     <!-- Chat space  -->
                     <main class="chat-space">
                         <div class="chat-header-container">
-                            <div class="chat-contact-user">
-                                <div class="chat-contact-image-avatar">
-                                    <img src="./img/avatar_1.jpg" alt="">
+                            <template v-for="contact, indexContact in contacts">
+                                <div class="chat-contact-user" v-if="indexContact === truthIndex">
+                                    <div class="chat-contact-image-avatar">
+                                        <img :src="imageSource(contact.avatar)" alt="">
+                                    </div>
+                                    <div class="chat-name-contact-container">
+                                        <span class="chat-contact-name-avatar">
+                                            {{ contact.name }}
+                                        </span>
+                                        <span class="chat-contact-message-status-avatar">
+                                            Ultimo messaggio inviato 
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="chat-name-contact-container">
-                                    <span class="chat-contact-name-avatar">
-                                        Michele
-                                    </span>
-                                    <span class="chat-contact-message-status-avatar">
-                                        Ultimo messaggio inviato 
-                                    </span>
-                                </div>
-                            </div>
+                            </template>
                             <div class="chat-icon-container">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                                 <i class="fa-solid fa-paperclip"></i>
@@ -93,22 +95,24 @@
                             </div>
                         </div>
                         <div class="chat-message-space">
-                            <div class="message-sent-container">
-                                <div class="message-sent">
-                                    Lorem ipsum Alias, Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti harum quo facere id amet ipsum a eaque pariatur cum, numquam quidem veniam iure aperiam et ratione. Sapiente optio earum cumque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum vel dignissimos voluptatem itaque eum provident debitis, possimus pariatur necessitatibus quo nemo cumque ipsa similique optio dicta hic ratione, nisi nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, aspernatur corrupti. Fuga voluptate similique amet repellat harum, hic laudantium corporis vero dolor consequuntur maiores praesentium magni tempore ratione quam consectetur!
-                                    <div class="chat-time-message-sent">
-                                        22:00
+                            <template v-for="contact, indexContact in contacts">
+                                <div  v-for="text, indexMessage in contact.messages" class="message-sent-container" :class="{active: indexContact === truthIndex }">
+                                    <div class="message-sent" v-if="text.status === 'sent' && indexContact === truthIndex ">
+                                       {{ text.message }}
+                                        <div class="chat-time-message-sent">
+                                            22:00
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="message-received-container">
-                                <div class="message-received">
-                                    Lorem ipsum dolor, Lorem ipsum 
-                                    <div class="chat-time-message-received">
-                                        22:00
+                                <div v-for="text, indexMessage in contact.messages" class="message-received-container" :class="{active: indexContact === truthIndex }">
+                                    <div class="message-received" v-if="text.status === 'received' && indexContact === truthIndex">
+                                        {{ text.message }} 
+                                        <div class="chat-time-message-received">
+                                            22:00
+                                        </div>
                                     </div>
-                                </div>
-                            </div>           
+                                </div> 
+                            </template>        
                         </div>
                         <div class="chat-input-message-user">
                             <i class="fa-regular fa-face-smile"></i>

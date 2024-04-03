@@ -244,13 +244,14 @@ body {
     height: calc(100% - 120px);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 6px;
 }
 
 .message-sent-container {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    display: none;
 }
 
 .message-sent {
@@ -274,6 +275,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    display: none;
 }
 
 .message-received {
@@ -291,6 +293,10 @@ body {
     bottom: 6px;
     right: 6px;
     color: #b1b1b1;
+}
+
+.active {
+    display: flex;
 }
 
 /* Input Send Meessage */
