@@ -92,3 +92,25 @@ body {
     background-color: #dadbd4;
     cursor: pointer;
 }
+
+/*------------------------
+        CHAT SPACE  
+--------------------------*/
+
+.chat-user-contact {
+    height: 60px;
+    background-color: #eaeaea;
+}
+
+.chat-message-space {
+    background-image: url("../img/mine.jpg");
+    background-position: cover;
+    overflow-y: auto;
+    padding: 40px 50px;
+    height: calc(100% - 120px);
+}
+
+.chat-input-message-user {
+    height: 60px;
+    background-color: #eaeaea;
+}
