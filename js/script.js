@@ -96,6 +96,15 @@ createApp({
 
         userSelected: function(indexContacts) {
             this.truthIndex = indexContacts
+        },
+        onlyTime: function() {
+            const divideDateAndTime = this.contacts[this.truthIndex].messages[this.truthIndex].date.split(' ')
+            const time = divideDateAndTime[1]
+            console.log(time);
+            return time
         }
+    },
+    mounted() {
+        this.onlyTime();
     }
 }).mount('#app');

@@ -63,7 +63,7 @@
                                     </span>
                                 </div>
                                 <div class="time-contact-avatar">
-                                    22:00
+                                    {{ onlyTime() }}
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                             {{ contact.name }}
                                         </span>
                                         <span class="chat-contact-message-status-avatar">
-                                            Ultimo messaggio inviato 
+                                            Ultimo messaggio inviato alle {{ onlyTime() }}
                                         </span>
                                     </div>
                                 </div>
@@ -96,11 +96,11 @@
                         </div>
                         <div class="chat-message-space">
                             <template v-for="contact, indexContact in contacts">
-                                <div  v-for="text, indexMessage in contact.messages" class="message-sent-container" :class="{active: indexContact === truthIndex }">
+                                <div v-for="text, indexMessage in contact.messages" class="message-sent-container" :class="{active: indexContact === truthIndex }">
                                     <div class="message-sent" v-if="text.status === 'sent' && indexContact === truthIndex ">
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
-                                            22:00
+                                            {{ onlyTime() }}
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@
                                     <div class="message-received" v-if="text.status === 'received' && indexContact === truthIndex">
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">
-                                            22:00
+                                            {{ onlyTime() }}
                                         </div>
                                     </div>
                                 </div> 
