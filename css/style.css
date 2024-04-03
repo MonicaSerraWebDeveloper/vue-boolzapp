@@ -49,7 +49,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
-    border: 2px solid red;
+    background-color: #fff;
 }
 
 .contact-column {
@@ -61,4 +61,34 @@ body {
 .chat-space {
     width: 65%;
     border: 2px solid blue;
+}
+
+/*------------------------
+        ASIDE CONTACT   
+--------------------------*/
+
+.user-contact {
+    background-color: #eaeaea;
+    height: 60px;
+}
+
+.alert-notification {
+    background-color: #8edafc;
+    height: 60px;
+}
+
+.input-search {
+    background-color: #eaeaea;
+    padding: 5px;    
+    height: 30px;
+}
+
+.address-book {
+    height: calc(100% - 150px);
+    overflow-y: auto;
+}
+
+.contact-address:hover {
+    background-color: #dadbd4;
+    cursor: pointer;
 }
