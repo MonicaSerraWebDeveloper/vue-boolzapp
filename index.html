@@ -50,7 +50,10 @@
                             </div>
                         </div>
                         <div class="address-book">
-                            <div v-for="contact, index in contacts" class="contact-address" @click="userSelected(index)">
+                            <div 
+                            v-for="contact, index in contacts" 
+                            class="contact-address"
+                            @click="userSelected(index)">
                                 <div class="contact-image-avatar">
                                     <img :src="imageSource(contact.avatar)" alt="">
                                 </div>
@@ -96,16 +99,29 @@
                         </div>
                         <div class="chat-message-space">
                             <template v-for="contact, indexContact in contacts">
-                                <div v-for="text, indexMessage in contact.messages" class="message-sent-container" :class="{active: indexContact === truthIndex }">
-                                    <div class="message-sent" v-if="text.status === 'sent' && indexContact === truthIndex ">
+                                <div 
+                                v-for="text, indexMessage in contact.messages" 
+                                class="message-sent-container" 
+                                :class="{active: indexContact === truthIndex }"
+                                >
+                                    <div 
+                                    class="message-sent" 
+                                    v-if="text.status === 'sent' && indexContact === truthIndex "
+                                    >
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
                                             {{ onlyTime() }}
                                         </div>
                                     </div>
                                 </div>
-                                <div v-for="text, indexMessage in contact.messages" class="message-received-container" :class="{active: indexContact === truthIndex }">
-                                    <div class="message-received" v-if="text.status === 'received' && indexContact === truthIndex">
+                                <div 
+                                v-for="text, indexMessage in contact.messages" 
+                                class="message-received-container" 
+                                :class="{active: indexContact === truthIndex }"
+                                >
+                                    <div 
+                                    class="message-received" 
+                                    v-if="text.status === 'received' && indexContact === truthIndex">
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">
                                             {{ onlyTime() }}
