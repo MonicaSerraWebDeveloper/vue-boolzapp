@@ -1,9 +1,64 @@
-/*---------------------
+/*------------------------
         RESET   
------------------------*/
+--------------------------*/
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/*------------------------
+        GENERAL   
+--------------------------*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*------------------------
+        BACKGROUND 
+--------------------------*/
+
+.background-landscape {
+    height: 100vh;
+    position: relative;
+}
+
+.header-top-small {
+    height: 15%;
+    background-color: #009688;
+}
+
+.body-bottom-big {
+    height: 85%;
+    background-color: #dadbd4;
+}
+
+/*------------------------
+        VIEWPORT APP   
+--------------------------*/
+
+.container-app {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    height: calc(100vh - 15%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border: 2px solid red;
+}
+
+.contact-column {
+    width: 35%;
+    border: 2px solid green;
+    height: 100%;
+}
+
+.chat-space {
+    width: 65%;
+    border: 2px solid blue;
 }
