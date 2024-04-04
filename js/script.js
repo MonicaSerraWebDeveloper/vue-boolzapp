@@ -5,6 +5,7 @@ createApp({
         return {
             truthIndex: 0,
             chatMessageInput: '',
+            okMessage: null,
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -102,16 +103,30 @@ createApp({
 
         messageChat: function(indexContacts) {
           const newMessage = {
-            date: '',
+            date: '10/01/2020 15:50:00',
             message: this.chatMessageInput,
             status: 'sent'
+          };
+          this.contacts[indexContacts].messages.push(newMessage);
+          this.chatMessageInput = '';
+
+          // Aggiungiamo il TimeOut per far partire un messaggio in automatico e lo pushiamo all'interno dell'array "messsages" che si trova all'interno dell'array di oggetti di "contacts"
+          const automatedMessage = {
+            date: '',
+            message: 'ok',
+            status: 'received'
           }
-          this.contacts[indexContacts].messages.push(newMessage)
-          this.chatMessageInput = ''
+
+          this.okMessage = setTimeout(() => {
+            this.contacts[indexContacts].messages.push(automatedMessage)
+          }, 2000);
+          
         }
+
+        
     },
-    mounted() {
-      this.messageChat()
-    }
+    // mounted() {
+    //   this.automatedMessage()
+    // }
   
 }).mount('#app');
