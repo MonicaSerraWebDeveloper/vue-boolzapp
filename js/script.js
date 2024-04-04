@@ -3,9 +3,17 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            // Indice per gli array
             truthIndex: 0,
+            // Input dell'utente per inviare i messaggi
             chatMessageInput: '',
+            // Messaggio automatico che attiva il setTimeout
             okMessage: null,
+            // Input che può usare l'utente per cercare una persona tra quelle nell'address book
+            inputToSearchUser: '',
+
+            newArrayOfContactFilter: [],
+
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -121,12 +129,21 @@ createApp({
             this.contacts[indexContacts].messages.push(automatedMessage)
           }, 2000);
           
-        }
+        },
 
-        
+        searchUser: function() {
+          this.contacts.forEach(contact => {
+            const inputLowerCase = this.inputToSearchUser.toLowerCase()
+            if(contact.name.toLowerCase().includes(inputLowerCase)) {
+              contact.visible = true
+            } else {
+              contact.visible = false
+            }
+          });
+        }
     },
-    // mounted() {
-    //   this.automatedMessage()
-    // }
+    mounted() {
+      this.searchUser()
+    }
   
 }).mount('#app');

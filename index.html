@@ -46,37 +46,44 @@
                         <div class="input-search-row">
                             <div class="input-search-container">
                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                <input type="text" placeholder="Cerca o inizia una nuova chat">
+                                <input 
+                                v-model="inputToSearchUser"
+                                type="text" 
+                                placeholder="Cerca o inizia una nuova chat"
+                                @input="searchUser"
+                                >
                             </div>
                         </div>
                         <div class="address-book">
-                            <div 
-                            v-for="contact, index in contacts" 
-                            class="contact-address"
-                            @click="userSelected(index)"
-                            >
-                                <div class="contact-image-avatar">
-                                    <img :src="imageSource(contact.avatar)" alt="">
-                                </div>
-                                <div class="info-contact">
-                                    <span class="contact-name-avatar">
-                                        {{ contact.name }}
-                                    </span>
-                                    <span 
-                                    v-for="message, indexMessage in contact.messages"
-                                    class="contact-message-status-avatar"
-                                    v-show="contact.messages.length - 1 === indexMessage"
-                                    >
-                                        {{ message.message }} 
-                                    </span>
-                                </div>
+                            <template v-for="contact, index in contacts">
                                 <div 
-                                v-for="message, indexMessage in contact.messages"
-                                v-show="contact.messages.length - 1 === indexMessage"
-                                class="time-contact-avatar">
-                                    {{ message.date }}
+                                class="contact-address"
+                                @click="userSelected(index)"
+                                v-if="contact.visible"
+                                >
+                                    <div class="contact-image-avatar">
+                                        <img :src="imageSource(contact.avatar)" alt="">
+                                    </div>
+                                    <div class="info-contact">
+                                        <span class="contact-name-avatar">
+                                            {{ contact.name }}
+                                        </span>
+                                        <span 
+                                        v-for="message, indexMessage in contact.messages"
+                                        class="contact-message-status-avatar"
+                                        v-show="contact.messages.length - 1 === indexMessage"
+                                        >
+                                            {{ message.message }} 
+                                        </span>
+                                    </div>
+                                    <div 
+                                    v-for="message, indexMessage in contact.messages"
+                                    v-show="contact.messages.length - 1 === indexMessage"
+                                    class="time-contact-avatar">
+                                        {{ message.date }}
+                                    </div>
                                 </div>
-                            </div>
+                            </template>
                         </div>
                     </aside>
                     <!-- /Contact column  -->
