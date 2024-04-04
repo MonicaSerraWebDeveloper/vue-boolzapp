@@ -187,6 +187,10 @@ body {
     cursor: pointer;
 }
 
+.contact-address-active {
+    background-color: #e9ebeb;
+}
+
 .contact-message-status-avatar {
     font-size: 10px;
     color: #b1b1b1;

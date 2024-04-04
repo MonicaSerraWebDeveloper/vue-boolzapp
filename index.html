@@ -62,12 +62,19 @@
                                     <span class="contact-name-avatar">
                                         {{ contact.name }}
                                     </span>
-                                    <span class="contact-message-status-avatar">
-                                        Ultimo messaggio inviato 
+                                    <span 
+                                    v-for="message, indexMessage in contact.messages"
+                                    class="contact-message-status-avatar"
+                                    v-show="contact.messages.length - 1 === indexMessage"
+                                    >
+                                        {{ message.message }} 
                                     </span>
                                 </div>
-                                <div class="time-contact-avatar">
-                                    22:00
+                                <div 
+                                v-for="message, indexMessage in contact.messages"
+                                v-show="contact.messages.length - 1 === indexMessage"
+                                class="time-contact-avatar">
+                                    {{ message.date }}
                                 </div>
                             </div>
                         </div>
@@ -86,8 +93,11 @@
                                         <span class="chat-contact-name-avatar">
                                             {{ contact.name }}
                                         </span>
-                                        <span class="chat-contact-message-status-avatar">
-                                            Ultimo messaggio inviato alle 22:00
+                                        <span 
+                                        v-for="message, indexMessage in contact.messages" 
+                                        v-show="contact.messages.length - 1 === indexMessage" 
+                                        class="chat-contact-message-status-avatar" >
+                                            Ultimo messaggio inviato alle {{ message.date }}
                                         </span>
                                     </div>
                                 </div>
@@ -111,7 +121,7 @@
                                     >
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
-                                            22:00
+                                            {{ text.date }}
                                         </div>
                                     </div>
                                 </div>
