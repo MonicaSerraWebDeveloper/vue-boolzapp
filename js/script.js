@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             truthIndex: 0,
-            dateFromData: '',
+            chatMessageInput: '',
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -100,7 +100,18 @@ createApp({
             console.log(indexContacts);
         },
 
+        messageChat: function(indexContacts) {
+          const newMessage = {
+            date: '',
+            message: this.chatMessageInput,
+            status: 'sent'
+          }
+          this.contacts[indexContacts].messages.push(newMessage)
+          this.chatMessageInput = ''
+        }
     },
-    
+    mounted() {
+      this.messageChat()
+    }
   
 }).mount('#app');

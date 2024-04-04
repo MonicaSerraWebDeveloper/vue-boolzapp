@@ -112,41 +112,38 @@
                             <template v-for="contact, indexContact in contacts">
                                 <div 
                                 v-for="text, indexMessage in contact.messages" 
-                                class="message-sent-container" 
-                                :class="{active: indexContact === truthIndex }"
+                                class="message-container"
+                                :class="{active: indexContact === truthIndex}"
                                 >
                                     <div 
                                     class="message-sent" 
-                                    v-if="text.status === 'sent' && indexContact === truthIndex "
-                                    >
+                                    v-if="text.status === 'sent' && indexContact === truthIndex ">
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
                                             {{ text.date }}
                                         </div>
                                     </div>
-                                </div>
-                                <div 
-                                v-for="text, indexMessage in contact.messages" 
-                                class="message-received-container" 
-                                :class="{active: indexContact === truthIndex }"
-                                >
                                     <div 
                                     class="message-received" 
-                                    v-if="text.status === 'received' && indexContact === truthIndex">
+                                    v-else-if="text.status === 'received' && indexContact === truthIndex">
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">
-                                            22:00
+                                            {{ text.date }}
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                             </template>        
                         </div>
                         <div class="chat-input-message-user">
                             <i class="fa-regular fa-face-smile"></i>
-                            <input type="text" placeholder="Scrivi un messaggio">
+                            <input 
+                            type="text" 
+                            placeholder="Scrivi un messaggio"
+                            v-model="chatMessageInput"
+                            @keyup.enter="messageChat(truthIndex)"
+                            >
                             <i class="fa-solid fa-microphone"></i>
                         </div>
-
                     </main>
                     <!-- /Chat space  -->
                 </div>

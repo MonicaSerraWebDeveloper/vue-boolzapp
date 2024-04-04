@@ -201,7 +201,6 @@ body {
     color: #b1b1b1;
 }
 
-
 /*------------------------
         CHAT SPACE  
 --------------------------*/
@@ -251,10 +250,8 @@ body {
     gap: 6px;
 }
 
-.message-sent-container {
+.message-container {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
     display: none;
 }
 
@@ -265,6 +262,24 @@ body {
     padding: 20px;
     border-radius: 10px;
     position: relative;
+    align-self: flex-end;
+}
+
+.message-received {
+    max-width: 70%;
+    min-width: 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    align-self: flex-start;
+
+}
+
+.active {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .chat-time-message-sent {
@@ -275,22 +290,6 @@ body {
     color: #b1b1b1;
 }
 
-.message-received-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    display: none;
-}
-
-.message-received {
-    max-width: 70%;
-    min-width: 30%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-}
-
 .chat-time-message-received {
     font-size: 10px;
     position: absolute;
@@ -299,9 +298,7 @@ body {
     color: #b1b1b1;
 }
 
-.active {
-    display: flex;
-}
+
 
 /* Input Send Meessage */
 
