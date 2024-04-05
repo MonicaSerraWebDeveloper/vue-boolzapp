@@ -58,6 +58,7 @@
                             <template v-for="contact, index in contacts">
                                 <div 
                                 class="contact-address"
+                                :class="{'contact-address-active': index === truthIndex}"
                                 @click="userSelected(index)"
                                 v-if="contact.visible"
                                 >
