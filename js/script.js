@@ -1,5 +1,5 @@
 const { createApp } = Vue;
-
+const dt = luxon.DateTime;
 createApp({
     data() {
         return {
@@ -17,6 +17,7 @@ createApp({
             showDropdown: false,
             // Stabiliamo una variabile falsa di deafault per mostrare l'icona
             showIconChevron: false,
+
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -108,12 +109,12 @@ createApp({
         },
 
         userSelected: function(indexContacts) {
-            this.truthIndex = indexContacts
+          this.truthIndex = indexContacts
         },
 
         messageChat: function(indexContacts) {
           const newMessage = {
-            date: '10/01/2020 15:50:00',
+            date: dt.now().setLocale('it').toLocaleString(dt.DATE_SHORT) + ' ' + dt.now().setLocale('it').toLocaleString(dt.TIME_24_WITH_SECONDS),
             message: this.chatMessageInput,
             status: 'sent'
           };
@@ -122,7 +123,7 @@ createApp({
 
           // Aggiungiamo il TimeOut per far partire un messaggio in automatico e lo pushiamo all'interno dell'array "messsages" che si trova all'interno dell'array di oggetti di "contacts"
           const automatedMessage = {
-            date: '',
+            date: dt.now().setLocale('it').toLocaleString(dt.DATE_SHORT) + ' ' + dt.now().plus({ seconds: 2 }).setLocale('it').toLocaleString(dt.TIME_24_WITH_SECONDS),
             message: 'ok',
             status: 'received'
           }
