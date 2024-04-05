@@ -18,7 +18,7 @@
         <div class="background-landscape">
             <div class="header-top-small"></div>
             <div class="body-bottom-big">
-                <div class="container-app">
+                <div class="container-app" @click="closeDropdown($event)">
                     <!-- Contact column  -->
                     <aside class="contact-column">
                         <div class="user-contact">
@@ -134,6 +134,7 @@
                                     class="dropdown"
                                     :class="{'active-dropdown': showDropdown}"
                                     v-if="indexContact === truthIndex && indexMessage === truthMessageIndex"
+                                    @click="closeDropdown($event)"
                                     >
                                         <a href="#">Message info</a>
                                         <a href="#" @click="deleteMessage(indexMessage)">Delete message</a>
@@ -154,9 +155,10 @@
                                     class="dropdown"
                                     :class="{'active-dropdown': showDropdown}"
                                     v-if="indexContact === truthIndex && indexMessage === truthMessageIndex"
+                                    @click="closeDropdown($event)"
                                     >
                                         <a href="#">Message info</a>
-                                        <a href="#"  @click="deleteMessage(indexMessage)">Delete message</a>
+                                        <a href="#" @click="deleteMessage(indexMessage)">Delete message</a>
                                     </div>
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">

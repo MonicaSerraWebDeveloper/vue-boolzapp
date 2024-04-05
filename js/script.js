@@ -147,6 +147,20 @@ createApp({
           this.truthMessageIndex = indexMessage
 
           this.showDropdown = !this.showDropdown
+
+          console.log(this.truthIndex, indexContact, this.truthMessageIndex, indexMessage);
+          console.log(`Questo è il click ${this.showDropdown}`);
+
+        },
+
+        closeDropdown: function($event) {
+
+          if (!$event.target.classList.contains('fa-chevron-down')) {
+            this.showDropdown = false
+          } else if ($event.target.classList.contains('fa-chevron-down') && this.showDropdown === true) {
+            this.showDropdown = true
+          }
+          console.log(`Questo è il close ${this.showDropdown}`);
         },
 
         deleteMessage: function(indexMessage) {
