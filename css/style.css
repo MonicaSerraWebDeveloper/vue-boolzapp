@@ -273,13 +273,54 @@ body {
     border-radius: 10px;
     position: relative;
     align-self: flex-start;
-
 }
 
 .active {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+}
+
+/* ELEMENT INSIDE CHAT */
+
+.fa-chevron-down {
+    color: #b1b1b1;
+    font-size: 12px;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 6px;
+    z-index: 10;
+    background-color: #fff;
+    color: #b1b1b1;
+    width: 160px;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: none;
+}
+
+.dropdown a {
+    text-decoration: none;
+    height: 46px;
+    color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a:hover {
+    background-color: #ddd;
+}
+
+.active-dropdown {
+    display: block;
 }
 
 .chat-time-message-sent {

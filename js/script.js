@@ -11,9 +11,10 @@ createApp({
             okMessage: null,
             // Input che può usare l'utente per cercare una persona tra quelle nell'address book
             inputToSearchUser: '',
+            // Variabile per creare un toggle per far comparire o no il dorpdown
+            showDropdown: false,
 
-            newArrayOfContactFilter: [],
-
+            truthMessageIndex: 0,
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -106,7 +107,6 @@ createApp({
 
         userSelected: function(indexContacts) {
             this.truthIndex = indexContacts
-            console.log(indexContacts);
         },
 
         messageChat: function(indexContacts) {
@@ -140,6 +140,20 @@ createApp({
               contact.visible = false
             }
           });
+        },
+
+        clickDropdown: function(indexContact, indexMessage) {
+          this.truthIndex = indexContact
+          this.truthMessageIndex = indexMessage
+
+          this.showDropdown = !this.showDropdown
+
+          console.log(this.truthIndex, indexContact, this.truthMessageIndex, indexMessage);
+
+        },
+
+        deleteMessage: function() {
+          alert('monica')
         }
     },
     mounted() {
