@@ -3,8 +3,10 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
-            // Indice per gli array
+            // Indice per l'array principale di contacts
             truthIndex: 0,
+            // Indice per l'array dei messages
+            truthMessageIndex: 0,
             // Input dell'utente per inviare i messaggi
             chatMessageInput: '',
             // Messaggio automatico che attiva il setTimeout
@@ -13,8 +15,8 @@ createApp({
             inputToSearchUser: '',
             // Variabile per creare un toggle per far comparire o no il dorpdown
             showDropdown: false,
-
-            truthMessageIndex: 0,
+            // Stabiliamo una variabile falsa di deafault per mostrare l'icona
+            showIconChevron: false,
             contacts: [{
                 name: 'Michele',
                 avatar: '_1',
@@ -142,15 +144,22 @@ createApp({
           });
         },
 
+        // Stabiliamo con la funzione che l'icona chevron si vede solo quando la variabile è vera
+        showTheIcon: function(indexMessage) {
+          this.truthMessageIndex = indexMessage
+          this.showIconChevron = true;
+        },
+
+        // Stabiliamo con la funzione che l'icona chevron deve rimanere nascosta 
+        hideIcon: function() {
+          this.showIconChevron = false
+        },
+
         clickDropdown: function(indexContact, indexMessage) {
           this.truthIndex = indexContact
           this.truthMessageIndex = indexMessage
 
           this.showDropdown = !this.showDropdown
-
-          console.log(this.truthIndex, indexContact, this.truthMessageIndex, indexMessage);
-          console.log(`Questo è il click ${this.showDropdown}`);
-
         },
 
         closeDropdown: function($event) {
@@ -160,12 +169,10 @@ createApp({
           } else if ($event.target.classList.contains('fa-chevron-down') && this.showDropdown === true) {
             this.showDropdown = true
           }
-          console.log(`Questo è il close ${this.showDropdown}`);
         },
 
         deleteMessage: function(indexMessage) {
           this.contacts[this.truthIndex].messages.splice(indexMessage, 1)
-          console.log(this.contacts[this.truthIndex].messages);
         }
     },
     mounted() {

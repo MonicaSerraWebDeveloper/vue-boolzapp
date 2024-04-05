@@ -125,10 +125,14 @@
                                 >
                                     <div 
                                     class="message-sent" 
-                                    v-if="text.status === 'sent' && indexContact === truthIndex ">
+                                    v-if="text.status === 'sent' && indexContact === truthIndex"
+                                    @mouseenter="showTheIcon(indexMessage)" 
+                                    @mouseleave="hideIcon()"
+                                    >
                                     <i 
                                     class="fa-solid fa-chevron-down"
                                     @click="clickDropdown(indexContact, indexMessage)"
+                                    :class="{'active-icon': showIconChevron && indexMessage === truthMessageIndex}"
                                     ></i>
                                     <div 
                                     class="dropdown"
@@ -146,9 +150,13 @@
                                     </div>
                                     <div 
                                     class="message-received" 
-                                    v-else-if="text.status === 'received' && indexContact === truthIndex">
+                                    v-else-if="text.status === 'received' && indexContact === truthIndex"
+                                    @mouseenter="showTheIcon(indexMessage)" 
+                                    @mouseleave="hideIcon()"
+                                    >
                                     <i 
-                                    class="fa-solid fa-chevron-down" 
+                                    class="fa-solid fa-chevron-down"
+                                    :class="{'active-icon': showIconChevron && indexMessage === truthMessageIndex}"
                                     @click="clickDropdown(indexContact, indexMessage)"
                                     ></i>
                                     <div 
