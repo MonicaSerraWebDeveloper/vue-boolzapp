@@ -136,7 +136,7 @@
                                     v-if="indexContact === truthIndex && indexMessage === truthMessageIndex"
                                     >
                                         <a href="#">Message info</a>
-                                        <a href="#" @click="deleteMessage">Delete message</a>
+                                        <a href="#" @click="deleteMessage(indexMessage)">Delete message</a>
                                     </div>
                                        {{ text.message }}
                                         <div class="chat-time-message-sent">
@@ -156,7 +156,7 @@
                                     v-if="indexContact === truthIndex && indexMessage === truthMessageIndex"
                                     >
                                         <a href="#">Message info</a>
-                                        <a href="#">Delete message</a>
+                                        <a href="#"  @click="deleteMessage(indexMessage)">Delete message</a>
                                     </div>
                                         {{ text.message }} 
                                         <div class="chat-time-message-received">

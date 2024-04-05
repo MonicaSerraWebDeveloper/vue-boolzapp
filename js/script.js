@@ -147,13 +147,11 @@ createApp({
           this.truthMessageIndex = indexMessage
 
           this.showDropdown = !this.showDropdown
-
-          console.log(this.truthIndex, indexContact, this.truthMessageIndex, indexMessage);
-
         },
 
-        deleteMessage: function() {
-          alert('monica')
+        deleteMessage: function(indexMessage) {
+          this.contacts[this.truthIndex].messages.splice(indexMessage, 1)
+          console.log(this.contacts[this.truthIndex].messages);
         }
     },
     mounted() {
